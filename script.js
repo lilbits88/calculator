@@ -1,36 +1,34 @@
-const display = document.getElementById('display');
-const buttons = document.querySelectorAll('.btn');
-const clearButton = document.getElementById('clear');
+function add(a,b) {
+  return a + b;
+}
+function subtract(a,b) {
+  return a - b;
+}
+function multiply(a,b) {
+  return a * b;
+}
+function divide(a,b) {
+  if(a === 0 || b === 0) {
+    return "error";
+  }
+  else {
+    return a / b;
+  }
+}
 
-let currentInput = '';
-let previousInput = '';
-let operator = '';
+let num1;
+let num2;
+let operator;
 
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    const value = button.dataset.value;
-    
-    if (value === '=') {
-      if (operator && previousInput !== '') {
-        currentInput = eval(previousInput + operator + currentInput);
-        display.value = currentInput;
-        previousInput = '';
-        operator = '';
-      }
-    } else if (value === 'C') {
-      currentInput = '';
-      previousInput = '';
-      operator = '';
-      display.value = '';
-    } else if (['+', '-', '*', '/'].includes(value)) {
-      if (previousInput !== '') {
-        currentInput = '';
-      }
-      operator = value;
-      previousInput = display.value;
-    } else {
-      currentInput += value;
-      display.value = currentInput;
-    }
-  });
-});
+function operate(operator, num1, num2) {
+  switch (operator) {
+      case "+":
+          return add(num1, num2);
+      case "-":
+          return subtract(num1, num2);
+      case "*":
+          return multiply(num1, num2);
+      case "/":
+          return divide(num1, num2);
+  }
+}
