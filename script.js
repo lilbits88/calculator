@@ -1,20 +1,8 @@
-function add(a,b) {
-  return a + b;
-}
-function subtract(a,b) {
-  return a - b;
-}
-function multiply(a,b) {
-  return a * b;
-}
-function divide(a,b) {
-  if(a === 0 || b === 0) {
-    return "NOPE";
-  }
-  else {
-    return a / b;
-  }
-}
+const add = (a,b) => a + b;
+const subtract = (a,b) => a - b;
+const multiply = (a, b) => a * b;
+const divide = (a,b) => (a === 0 || b === 0) ? "NOPE" : a / b;
+
 
 let num1 = "";
 let num2 = "";
@@ -80,6 +68,6 @@ buttons.forEach(button => {
       display.textContent += value;
     } 
   });
-});
+}); 
 
 
